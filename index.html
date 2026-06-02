@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Free PDF Tools | PDF Process, File Convert & Online Utilities</title>
     <meta name="description" content="Free online PDF tools to compress, merge, split, convert, unlock PDF files. No install, works on mobile desktop.">
     <meta name="keywords" content="PDF tools, compress PDF, merge PDF, split PDF, PDF converter, online PDF editor, unlock PDF, reduce PDF size">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://pdf.calcfincepro.com/">
 
-    <!-- GA4 统计代码 -->
+    <!-- GA4 統計 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-70W3ZXHHPY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -19,6 +19,7 @@
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5761005665703697" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg-color: #121212;
@@ -30,6 +31,7 @@
             --header-border: #333;
             --hover-bg: #2a3444;
             --primary: #8cb4f0;
+            --shadow: rgba(0,0,0,0.08);
         }
 
         .light-mode {
@@ -56,27 +58,18 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
-        /* PDF页面专属居中修正，取消三栏固定留白 */
-        .page-wrap {
-            display: flex;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px 0;
-        }
-
+        /* 主開關位置 參考壓縮圖片頁 */
         .theme-switch {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 999;
+            top:15px;
+            z-index:999;
         }
+        @media(min-width:768px){.theme-switch{right:15px;}}
+        @media(max-width:767px){.theme-switch{left:15px;}}
 
         #toggleBtn {
             padding: 8px 14px;
@@ -86,242 +79,221 @@
             font-size: 14px;
             background: var(--card-bg);
             color: var(--text-color);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 6px var(--shadow);
         }
 
-        /* 收紧header边距，让内容更靠上 */
+        /* 頁頭 */
         header {
-            text-align: center;
-            padding: 20px 0;
+            background: var(--card-bg);
+            box-shadow:0 2px 10px var(--shadow);
+            padding:50px 15px 20px;
+            text-align:center;
         }
-
         .title-wrap {
             display: inline-flex;
             align-items: center;
             gap: 12px;
         }
-
         .title-wrap i {
             font-size: 2.4rem;
-            color: #8cb4f0;
+            color: var(--primary);
         }
-
-        .light-mode .title-wrap i {
-            color: #2c5282;
-        }
-
         h1 {
             font-size: 2.2rem;
         }
 
-        /* 统一 Smart Tools 导航栏 */
+        /* Smart Tools 全域統一式樣 */
         .cross-tools-bar {
             background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px var(--shadow);
             border: 1px solid var(--border-color);
-            padding: 10px 12px;
-            margin: 0 auto 20px;
-            max-width: 100%;
+            padding: 8px 12px;
+            margin:15px auto;
+            max-width:1280px;
         }
         .tools-title {
-            font-size: 14px;
-            color: var(--primary);
-            background-color: rgba(140, 180, 240, 0.1);
-            padding: 4px 0;
-            margin-bottom: 8px;
-            text-align: center;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            border-radius: 4px;
+            font-size:14px;
+            color:var(--primary);
+            background-color:rgba(140,180,240,0.1);
+            padding:4px 0;
+            margin-bottom:6px;
+            text-align:center;
+            font-weight:700;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:4px;
+            border-radius:4px;
         }
-        .tools-title i {
-            color: var(--primary);
-            font-size: 13px;
-        }
+        .tools-title i {color:var(--primary);font-size:13px;}
         .cross-tools-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
+            display:grid;
+            grid-template-columns:repeat(5,1fr);
+            gap:6px;
         }
         .cross-tool-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            padding: 5px 4px;
-            background-color: rgba(140, 180, 240, 0.08);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 12px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:4px;
+            padding:4px 4px;
+            background-color:rgba(140,180,240,0.08);
+            border-radius:10px;
+            text-decoration:none;
+            color:var(--text-color);
+            font-size:12px;
+            transition:all 0.2s ease;
+            white-space:nowrap;
         }
         .cross-tool-card:hover {
-            background-color: rgba(140, 180, 240, 0.2);
-            color: var(--primary);
-            transform: translateY(-1px);
+            background-color:rgba(140,180,240,0.2);
+            color:var(--primary);
+            transform:translateY(-1px);
         }
-        .cross-tool-icon {
-            font-size: 15px;
-            color: var(--primary);
+        .cross-tool-icon {font-size:15px;color:var(--primary);}
+
+        /* 頁面容器 PC雙欄、手機單欄 */
+        .page-wrap {
+            max-width:1280px;
+            margin:0 auto;
+            padding:0 15px;
+            display:flex;
+            gap:20px;
+            align-items:flex-start;
+        }
+        .main-content {flex:1;max-width:800px;margin:0 auto;}
+        /* 右側側邊廣告 桌面顯示手機隱藏 */
+        .sidebar-ad {
+            width:160px;
+            flex-shrink:0;
+            background:var(--card-bg);
+            border-radius:12px;
+            padding:15px;
+            box-shadow:0 3px 15px var(--shadow);
+            position:sticky;
+            top:20px;
         }
 
-        /* 功能分类区块样式，和全站统一 */
+        /* 廣告容器通用 */
+        .ad-block {
+            width:100%;
+            background:var(--card-bg);
+            border-radius:12px;
+            padding:10px;
+            margin:15px 0;
+            overflow:hidden;
+        }
+        .top-full-ad{max-width:728px;margin:12px auto;}
+        .native-ad{max-width:300px;margin:18px auto;width:calc(100% -30px);}
+
+        /* PDF工具分區 */
         .tool-category {
             background: var(--card-bg);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding:35px 25px;
+            margin-bottom:20px;
+            box-shadow:0 4px 20px var(--shadow);
         }
-
         .category-title {
-            font-size: 1.3rem;
-            color: #8cb4f0;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--header-border);
-            text-align: center;
+            font-size:1.3rem;
+            color:var(--primary);
+            margin-bottom:15px;
+            padding-bottom:8px;
+            border-bottom:1px solid var(--header-border);
+            text-align:center;
         }
-
-        .light-mode .category-title {
-            color: #2c5282;
-        }
-
         .tool-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            max-width: 800px;
-            margin: 0 auto;
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:15px;
         }
-
         .tool-item {
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            text-align: center;
-            transition: 0.2s ease;
+            padding:14px;
+            border:1px solid var(--border-color);
+            border-radius:8px;
+            text-align:center;
+            transition:0.2s ease;
         }
-
         .tool-item:hover {
-            background: var(--hover-bg);
-            border-color: #b3d4f5;
+            background:var(--hover-bg);
+            border-color:var(--primary);
         }
-
         .tool-item a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
+            text-decoration:none;
+            color:var(--text-color);
+            font-weight:500;
+            font-size:15px;
         }
-
         .tool-item p {
-            font-size: 0.85rem;
-            color: var(--text-color);
-            opacity: 0.7;
-            margin-top: 5px;
+            font-size:0.85rem;
+            color:var(--text-color);
+            opacity:0.7;
+            margin-top:5px;
         }
 
-        /* 底部合规板块 */
+        /* 底部合規&SEO */
         .legal-section {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-size: 0.9rem;
+            padding:25px;
+            border-radius:12px;
+            margin:20px 0;
+            box-shadow:0 3px 15px var(--shadow);
         }
-
         .legal-section h3 {
-            font-size: 1.1rem;
-            margin: 15px 0 8px;
-            color: #8cb4f0;
+            font-size:1.1rem;
+            margin:15px 0 8px;
+            color:var(--primary);
         }
-
-        .light-mode .legal-section h3 {
-            color: #2c5282;
-        }
-
         .contact-link {
-            color: #8cb4f0;
-            text-decoration: none;
+            color:var(--primary);
+            text-decoration:none;
         }
-
-        .light-mode .contact-link {
-            color: #2c5282;
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-
-        /* SEO 标签云 */
+        .contact-link:hover {text-decoration:underline;}
         .seo-tags {
-            margin: 30px 0;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 8px;
-            text-align: center;
+            margin:30px 0;
+            padding:20px;
+            background:var(--card-bg);
+            border-radius:12px;
+            text-align:center;
+            box-shadow:0 3px 15px var(--shadow);
         }
-
         .seo-tags span {
-            display: inline-block;
-            background: var(--tag-bg);
-            color: var(--tag-text);
-            padding: 6px 12px;
-            margin: 5px 4px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            display:inline-block;
+            background:var(--tag-bg);
+            color:var(--tag-text);
+            padding:6px 12px;
+            margin:5px 4px;
+            border-radius:20px;
+            font-size:0.85rem;
         }
-
         footer {
-            text-align: center;
-            padding: 20px 0;
-            color: var(--text-color);
-            opacity: 0.6;
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 20px;
+            max-width:1280px;
+            margin:50px auto 30px;
+            padding:30px 15px;
+            background:var(--card-bg);
+            border-radius:16px;
+            box-shadow:0 3px 15px var(--shadow);
+            text-align:center;
         }
-
         .footer-links a {
-            color: var(--text-color);
-            margin: 0 8px;
-            text-decoration: none;
+            color:var(--primary);
+            text-decoration:none;
+            margin:0 10px;
+            font-size:15px;
         }
+        .footer-links a:hover {text-decoration:underline;}
 
-        .footer-links a:hover {
-            color: #8cb4f0;
-        }
-
-        /* 側邊廣告桌面顯示、手機隱藏 */
-        .sidebar-ad {
-            width:300px;
-            padding:20px 10px;
-        }
-        @media (max-width:991px){
-            .sidebar-ad{
-                display:none;
-            }
-        }
-
-        /* 移动端适配 */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            .theme-switch {
-                top: 10px;
-                left: 10px;
-            }
-            .cross-tools-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
+        /* 手機響應規則 */
+        @media(max-width:767px){
+            body{padding:0;}
+            header{padding:35px 15px 15px;}
+            h1{font-size:1.8rem;}
+            .cross-tools-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+            .page-wrap{flex-direction:column;padding:0;gap:0;}
+            .sidebar-ad{display:none !important;}
+            .main-content{padding:0 15px;max-width:100%;}
+            .tool-category{padding:25px 15px;}
         }
     </style>
 </head>
@@ -332,51 +304,53 @@
         </button>
     </div>
 
+    <header>
+        <div class="title-wrap">
+            <i class="fas fa-file-pdf"></i>
+            <h1>Free PDF Tools</h1>
+        </div>
+    </header>
+
+    <!-- 頂部728×90通欄Banner廣告位 -->
+    <div class="top-full-ad ad-block">
+        <!-- 替換廣告程式碼 -->
+        <!--<ins class="adsbygoogle" style="display:block" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>-->
+    </div>
+
+    <!-- Smart Tools導航 -->
+    <section class="cross-tools-bar">
+        <div class="tools-title">
+            <i class="fa fa-wrench"></i>
+            Smart Tools
+        </div>
+        <div class="cross-tools-grid">
+            <a href="https://calcfincepro.com" class="cross-tool-card">
+                <i class="fa fa-line-chart cross-tool-icon"></i>
+                <span>Finance Calculator</span>
+            </a>
+            <a href="https://compress.calcfincepro.com" class="cross-tool-card">
+                <i class="fa fa-compress cross-tool-icon"></i>
+                <span>Image Compressor</span>
+            </a>
+            <a href="https://aitools.calcfincepro.com" class="cross-tool-card">
+                <i class="fa fa-magic cross-tool-icon"></i>
+                <span>AI Tools</span>
+            </a>
+            <a href="https://text.calcfincepro.com" class="cross-tool-card">
+                <i class="fa fa-file-text-o cross-tool-icon"></i>
+                <span>Text Tools</span>
+            </a>
+            <a href="https://pdf.calcfincepro.com" class="cross-tool-card">
+                <i class="fa fa-file-pdf cross-tool-icon"></i>
+                <span>PDF Tools</span>
+            </a>
+        </div>
+    </section>
+
     <div class="page-wrap">
         <main class="main-content">
-            <header>
-                <div class="title-wrap">
-                    <i class="fas fa-file-pdf"></i>
-                    <h1>Free PDF Tools</h1>
-                </div>
-            </header>
-
-            <!-- 頂部728 banner廣告，原生iframe，無highperformance鏈接 -->
-            <div class="top-728-ad" style="text-align:center;margin:10px 0;">
-<iframe width="728" height="90" data-key="7eb3b5b31842ba071a8b84b93da38729" frameborder="0" scrolling="no"></iframe>
-            </div>
-
-            <!-- Smart Tools 導航 -->
-            <section class="cross-tools-bar">
-                <div class="tools-title">
-                    <i class="fa fa-wrench"></i>
-                    Smart Tools
-                </div>
-                <div class="cross-tools-grid">
-                    <a href="https://calcfincepro.com" class="cross-tool-card">
-                        <i class="fa fa-line-chart cross-tool-icon"></i>
-                        <span>Finance Calculator</span>
-                    </a>
-                    <a href="https://compress.calcfincepro.com" class="cross-tool-card">
-                        <i class="fa fa-compress cross-tool-icon"></i>
-                        <span>Image Compressor</span>
-                    </a>
-                    <a href="https://aitools.calcfincepro.com" class="cross-tool-card">
-                        <i class="fa fa-magic cross-tool-icon"></i>
-                        <span>AI Tools</span>
-                    </a>
-                    <a href="https://text.calcfincepro.com" class="cross-tool-card">
-                        <i class="fa fa-file-text-o cross-tool-icon"></i>
-                        <span>Text Tools</span>
-                    </a>
-                    <a href="https://pdf.calcfincepro.com" class="cross-tool-card">
-                        <i class="fa fa-file-pdf cross-tool-icon"></i>
-                        <span>PDF Tools</span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- PDF 核心功能區 -->
+            <!-- PDF核心工具 -->
             <div class="tool-category">
                 <h2 class="category-title">All PDF Tools</h2>
                 <div class="tool-list">
@@ -389,7 +363,7 @@
                 </div>
             </div>
 
-            <!-- 附加工具分類 -->
+            <!-- 其他工具 -->
             <div class="tool-category">
                 <h2 class="category-title">Other Useful Tools</h2>
                 <div class="tool-list">
@@ -400,69 +374,80 @@
                 </div>
             </div>
 
-            <!-- 底部合規區域 -->
+            <!-- 內容下方300×250 Native原生廣告位 -->
+            <div class="native-ad ad-block">
+                <!-- Native廣告程式碼放這 -->
+            </div>
+
+            <!-- 合規區 -->
             <div class="legal-section" id="about">
                 <h3>About Us</h3>
                 <p>Free PDF Tools provides a full set of online PDF solutions for personal and business use. We offer simple, fast and reliable tools to process your PDF documents without any software installation. All tools are free and friendly for mobile users.</p>
             </div>
-
             <div class="legal-section" id="contact">
                 <h3>Contact Us</h3>
                 <p>For business inquiries or feedback, please <a href="mailto:zoha11964@gmail.com" class="contact-link">click here to send us a message</a>.</p>
                 <p>We do not provide technical support for any third-party tools listed on this website.</p>
             </div>
-
             <div class="legal-section" id="privacy">
                 <h3>Privacy Policy</h3>
                 <p>We use third-party ad network and cookies to serve ads. We do not collect personal data unless voluntarily provided via contact form. By using this site, you consent to the use of cookies.</p>
             </div>
-
             <div class="legal-section" id="terms">
                 <h3>Terms of Service</h3>
                 <p>This website is for informational purposes only. All listed tools belong to their respective owners. We are not affiliated with any third-party service. Use of external links is at your own risk.</p>
             </div>
-
             <div class="legal-section" id="disclaimer">
                 <h3>Disclaimer</h3>
                 <p>We do not guarantee the accuracy, safety, or quality of any third-party tools listed. We are not liable for any loss or damage resulting from the use of external websites or services.</p>
             </div>
 
-            <!-- SEO 關鍵詞標籤雲 -->
+            <!-- SEO標籤 -->
             <div class="seo-tags">
                 <span>PDF tools</span><span>Compress PDF</span><span>Merge PDF</span><span>Split PDF</span><span>PDF Converter</span>
                 <span>Online PDF Editor</span><span>Unlock PDF</span><span>Reduce PDF Size</span><span>PDF to Word</span><span>PDF to Image</span>
             </div>
-
-            <footer>
-                <div class="footer-links">
-                    <a href="#about">About Us</a>
-                    <a href="#contact">Contact Us</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#disclaimer">Disclaimer</a>
-                </div>
-                <p>&copy; 2026 Free PDF Tools. All Rights Reserved.</p>
-            </footer>
         </main>
 
-        <!-- 右側廣告位 容器預留 -->
-        <aside class="sidebar-ad right">
-            <div class="ad-box top-side-ad" style="margin-bottom:20px;"></div>
-            <div class="ad-box bottom-side-ad"></div>
+        <!-- 右側豎版廣告（桌面可見、手機隱藏） -->
+        <aside class="sidebar-ad">
+            <div class="ad-block">
+                <!-- 右側豎廣告程式碼 -->
+            </div>
         </aside>
     </div>
 
-    <!-- 明暗模式切換腳本 -->
+    <footer>
+        <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#disclaimer">Disclaimer</a>
+        </div>
+        <p style="margin-top:12px;opacity:0.7;">&copy; 2026 Free PDF Tools. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 明暗切換JS -->
     <script>
         const toggleBtn = document.getElementById('toggleBtn');
         const body = document.body;
+        let darkMode = localStorage.getItem('pdfTheme') !== 'light';
+        if(!darkMode){
+            body.classList.add('light-mode');
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+        }else{
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
 
         toggleBtn.addEventListener('click', function () {
             body.classList.toggle('light-mode');
-            if (body.classList.contains('light-mode')) {
+            if(body.classList.contains('light-mode')){
                 this.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-            } else {
+                localStorage.setItem('pdfTheme','light');
+            }else{
                 this.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                localStorage.setItem('pdfTheme','dark');
             }
         });
     </script>
